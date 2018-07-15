@@ -3,7 +3,32 @@
 var buttonRock = document.getElementById('rock');
 var buttonPaper = document.getElementById('paper');
 var buttonScissor = document.getElementById('scissor');
-var buttonNewGame= document.getElementById('newGame');
+
+/*
+var playerChoice = document.querySelectorAll('.player-move');
+	for(var i = 0; i < playerChoice.length; i++){
+		function gameButtons (){
+      var b = document.getAttribute("data-move");
+      var rock = playerMove(b[0]);
+      var paper = playerMove(b[1]);
+      var scissor = playerMove(b[2]);
+    }
+  };
+  
+  var params = new Object();
+  params.playerScore = 0;
+  params.computerScore = 0;
+  params.newGame = 0;
+  params.endGame = false;
+
+  params.playerScoreInner = document.getElementById('playerPick');
+  params.computerScoreInner = document.getElementById('comPick');
+
+  params.output = document.getElementById('output');
+  params.roundsTotal = document.getElementById('roundsTotal');
+ */
+
+ var buttonNewGame= document.getElementById('newGame');
 
 var playerScore = 0;
 var computerScore = 0;
