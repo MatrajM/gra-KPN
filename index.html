@@ -4,42 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <title>A Pen by  Michal</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-  <div>
+<div>
   <button id="newGame" class="new-game">New Game</div>
 </div>
+
 <div class="container">
-  <button id="rock">ROCK</button>
+  <button id="rock" data-move="rock" class="player-move">ROCK</button>
 </div>
+
 <div class="container">
-  <button id="paper">PAPER</button>
+  <button id="paper" data-move="paper" class="player-move">PAPER</button>
 </div>
+
 <div class="container">
-  <button id="scissor" >SCISSOR</button>
+  <button id="scissor" data-move="scissor" class="player-move">SCISSOR</button>
 </div>
-<div id="output" class="result"></div>
-<div id="score">
-  <div id="playerPick"></div> :
-  <div id="comPick"></div>
-  <div id="roundsTotal"></div>
-</div>
-  
-  
 
-    <script  src="js/index.js"></script>
+<div class="overlay" id="modal-overlay">
+  <div id="score" class="modal">
+    <a href="#" class="close">x</a>
+    <div class="content">
+        <div id="output" class="result"></div>
+    </div>
+  </div>
+</div> 
 
+<div id="playerPick"></div> :
+<div id="comPick"></div>
+<div id="roundsTotal"></div>
 
-
-
+<script  src="js/index.js"></script>
 </body>
 
 </html>

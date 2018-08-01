@@ -4,7 +4,7 @@ var buttonRock = document.getElementById('rock');
 var buttonPaper = document.getElementById('paper');
 var buttonScissor = document.getElementById('scissor');
 
-/*
+
 var playerChoice = document.querySelectorAll('.player-move');
 	for(var i = 0; i < playerChoice.length; i++){
 		function gameButtons (){
@@ -20,35 +20,20 @@ var playerChoice = document.querySelectorAll('.player-move');
   params.computerScore = 0;
   params.newGame = 0;
   params.endGame = false;
+  params.progress = [];
 
   params.playerScoreInner = document.getElementById('playerPick');
   params.computerScoreInner = document.getElementById('comPick');
 
   params.output = document.getElementById('output');
   params.roundsTotal = document.getElementById('roundsTotal');
- */
+ 
 
  var buttonNewGame= document.getElementById('newGame');
 
-var playerScore = 0;
-var computerScore = 0;
-var newGame = 0;
-var endGame = false;
-
-var playerScoreInner = document.getElementById('playerPick');
-var computerScoreInner = document.getElementById('comPick');
-
-playerScoreInner.innerHTML='Player Score';
-computerScoreInner.innerHTML='Computer Score';
-
-var output = document.getElementById('output');
-output.innerHTML = 'GAME RESULTS' + '<br><br>';
-
-var roundsTotal = document.getElementById('roundsTotal');
-
 buttonNewGame.addEventListener('click', function(){
-  newGame = window.prompt('State numer of wins');
-  roundsTotal.innerHTML = '<br>' + 'Aby wygrać musisz zdobyć ' + newGame + ' punktów';
+  params.newGame = window.prompt('State numer of wins');
+  roundsTotal.innerHTML = '<br>' + 'Aby wygrać musisz zdobyć ' + params.newGame + ' punktów';
 });
 buttonPaper.addEventListener('click', function(){
   playerMove('paper');
@@ -66,61 +51,66 @@ buttonScissor.addEventListener('click', function(){
  }
 
 function playerMove (moveName){
-  var output = document.getElementById('output');
- 
+  
   var comChoice = comMove();
   
   if(endGame == false) {
   
   if (moveName == 'rock' && comChoice == 1) {
-    output.innerHTML ='YOU LOSE your choice was rock Computer chose Paper!';
-    computerScore++;
+    params.output.innerHTML ='YOU LOSE your choice was rock Computer chose Paper!';
+    params.computerScore++;
     updateScore();
   }
   if (moveName == 'rock' && comChoice == 2) {
-    output.innerHTML ='ITs a TIE!';
+    params.output.innerHTML ='ITs a TIE!';
   }
   if (moveName == 'rock' && comChoice == 3) {
-    output.innerHTML ='YOU WIN you chose Rock Computer chose Scissors!';
-    playerScore++;
+    params.output.innerHTML ='YOU WIN you chose Rock Computer chose Scissors!';
+    params.playerScore++;
     updateScore();
   }
   if (moveName == 'paper' && comChoice == 1) {
-    output.innerHTML ='ITs a TIE!';
+    params.output.innerHTML ='ITs a TIE!';
   }
   if (moveName == 'paper' && comChoice == 2) {
-    output.innerHTML ='YOU WIN you chose Paper Computer chose Rock!';
-    playerScore++;
+    params.output.innerHTML ='YOU WIN you chose Paper Computer chose Rock!';
+    params.playerScore++;
     updateScore();
   }
   if (moveName == 'paper' && comChoice == 3) {
-    output.innerHTML ='YOU LOSE your choice was Paper Computer chose Scissors!';
-    computerScore++;
+    params.output.innerHTML ='YOU LOSE your choice was Paper Computer chose Scissors!';
+    params.computerScore++;
     updateScore();
   }
   if (moveName == 'scissor' && comChoice == 1) {
-    output.innerHTML ='YOU WIN you chose Scissors Computer chose Paper!';
-    playerScore++;
+    params.output.innerHTML ='YOU WIN you chose Scissors Computer chose Paper!';
+    params.playerScore++;
     updateScore();
   }
   if (moveName == 'scissor' && comChoice == 2) {
-    output.innerHTML ='YOU LOSE your choice was Scissors Computer chose Rock!';
-    computerScore++;
+    params.output.innerHTML ='YOU LOSE your choice was Scissors Computer chose Rock!';
+    params.computerScore++;
     updateScore();
   }
   if (moveName == 'scissor' && comChoice == 3) {
-    output.innerHTML ='ITs a TIE!';
-  }
+    params.output.innerHTML ='ITs a TIE!';
   }
   else {
-    output.innerHTML ='Koniec gry';
+    params.output.innerHTML ='Koniec gry';
    }
   }
-function updateScore(){
-  if(playerScore >= newGame || computerScore >= newGame){
-    alert('koniec');
-    endGame = true;
+  
   }
-  playerScoreInner.innerHTML = playerScore;
-  computerScoreInner.innerHTML = computerScore;
+function updateScore(){
+  if(params.playerScore >= newGame || params.computerScore >= newGame){
+    params.endGame = true;
+    document.querySelector('#modal-overlay').classList.add('show');
+  }
+  params.playerScoreInner.innerHTML = params.playerScore;
+  params.computerScoreInner.innerHTML = params.computerScore;
 }
+var hideModal = function(event){
+  event.preventDefault();
+  document.querySelector('#modal-overlay').classList.remove('show');
+};
+document.querySelector('#modal-overlay').addEventListener('click', hideModal);
