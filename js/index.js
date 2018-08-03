@@ -54,7 +54,7 @@ function playerMove (moveName){
   
   var comChoice = comMove();
   
-  if(endGame == false) {
+  if(params.endGame == false) {
   
   if (moveName == 'rock' && comChoice == 1) {
     params.output.innerHTML ='YOU LOSE your choice was rock Computer chose Paper!';
@@ -99,10 +99,11 @@ function playerMove (moveName){
     params.output.innerHTML ='Koniec gry';
    }
   }
-  
+ 
   }
+
 function updateScore(){
-  if(params.playerScore >= newGame || params.computerScore >= newGame){
+  if(params.playerScore >= params.newGame || params.computerScore >= params.newGame){
     params.endGame = true;
     document.querySelector('#modal-overlay').classList.add('show');
   }
