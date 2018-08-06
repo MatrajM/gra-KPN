@@ -4,7 +4,6 @@ body {
 
 .container {
   text-align: center;
-  display: inline-block;
   width: 33%;
   float: left; }
 
@@ -72,5 +71,11 @@ button {
   .modal .content {
     min-height: 30px;
     padding: 5px 30px; }
+
+table, td, tr {
+  border: 2px solid black;
+  height: 40px;
+  width: 400px;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=style.css.map */
