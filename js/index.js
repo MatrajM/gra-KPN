@@ -61,6 +61,7 @@ function playerMove (moveName){
     params.computerScore++;
     params.progress.push('You chose Rock and Computer chose Paper');
     updateScore();
+    addData();
   }
   if (moveName == 'rock' && comChoice == 2) {
     params.output.innerHTML ='ITs a TIE!';
@@ -69,6 +70,7 @@ function playerMove (moveName){
     params.output.innerHTML ='YOU WIN you chose Rock Computer chose Scissors!';
     params.playerScore++;
     updateScore();
+    addData();
   }
   if (moveName == 'paper' && comChoice == 1) {
     params.output.innerHTML ='ITs a TIE!';
@@ -77,21 +79,25 @@ function playerMove (moveName){
     params.output.innerHTML ='YOU WIN you chose Paper Computer chose Rock!';
     params.playerScore++;
     updateScore();
+    addData();
   }
   if (moveName == 'paper' && comChoice == 3) {
     params.output.innerHTML ='YOU LOSE your choice was Paper Computer chose Scissors!';
     params.computerScore++;
     updateScore();
+    addData();
   }
   if (moveName == 'scissor' && comChoice == 1) {
     params.output.innerHTML ='YOU WIN you chose Scissors Computer chose Paper!';
     params.playerScore++;
     updateScore();
+    addData();
   }
   if (moveName == 'scissor' && comChoice == 2) {
     params.output.innerHTML ='YOU LOSE your choice was Scissors Computer chose Rock!';
     params.computerScore++;
     updateScore();
+    addData();
   }
   if (moveName == 'scissor' && comChoice == 3) {
     params.output.innerHTML ='ITs a TIE!';
@@ -102,6 +108,17 @@ function playerMove (moveName){
   }
  
   }
+
+
+function addData(){
+  var rows = "";
+    rows += "<td>" + params.output.innerHTML + "</td>" ;
+        var tbody = document.querySelector("#stats tbody");
+        var tr = document.createElement("tr");
+
+        tr.innerHTML = rows;
+        tbody.appendChild(tr)
+}
 
 function updateScore(){
   if(params.playerScore >= params.newGame || params.computerScore >= params.newGame){
