@@ -63,7 +63,7 @@ button{
 }
 .modal {
 	background: #fff;
-	width: 800px;
+	width: 450px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -88,4 +88,9 @@ table,td,tr {
 	height: 40px;
 	width: 400px;
 	margin:0 auto;
+}
+p {
+	background-color: teal;
+	text-transform: uppercase;
+	font-weight: bold;
 }

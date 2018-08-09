@@ -27,13 +27,18 @@ var playerChoice = document.querySelectorAll('.player-move');
 
   params.output = document.getElementById('output');
   params.roundsTotal = document.getElementById('roundsTotal');
+  params.win = document.getElementById('win');
  
-
+ var buttonReset = document.getElementById('reset');
  var buttonNewGame= document.getElementById('newGame');
+
+buttonReset.addEventListener('click', function(){
+  window.location.reload();
+});
 
 buttonNewGame.addEventListener('click', function(){
   params.newGame = window.prompt('State numer of wins');
-  roundsTotal.innerHTML = '<br>' + 'Aby wygrać musisz zdobyć ' + params.newGame + ' punktów';
+  params.roundsTotal.innerHTML = '<br>' + 'Aby wygrać musisz zdobyć ' + params.newGame + ' punktów';
 });
 buttonPaper.addEventListener('click', function(){
   playerMove('paper');
@@ -104,11 +109,11 @@ function playerMove (moveName){
   }
   else {
     params.output.innerHTML ='Koniec gry';
+    winner();
    }
   }
  
   }
-
 
 function addData(){
   var rows = "";
@@ -129,6 +134,15 @@ function updateScore(){
   params.playerScoreInner.innerHTML = params.playerScore;
   params.computerScoreInner.innerHTML = params.computerScore;
   
+}
+function winner(){
+  if(params.playerScore >= params.newGame){
+    params.win.innerHTML = 'You are the Winner'
+  }
+  else {
+    params.win.innerHTML = 'Computer is the Winner'
+  }
+
 }
 var hideModal = function(event){
   event.preventDefault();

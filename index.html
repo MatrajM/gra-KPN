@@ -13,6 +13,7 @@
   <button id="newGame" class="new-game">New Game</div>
 </div>
 
+
 <div class="container">
   <button id="rock" data-move="rock" class="player-move">ROCK</button>
 </div>
@@ -27,31 +28,40 @@
 
 <div class="overlay" id="modal-overlay">
   <div id="score" class="modal">
-    <a href="#" class="close">x</a>
+    <a href="#" class="close">X</a>
     <div class="content"> 
+        <table id="stats">
+            <tbody>
+                <tr>
+                  <td>
+                      <div id="playerPick"></div> :
+                      <div id="comPick"></div>
+                  </td>
+                </tr>
+              <tr>
+                <td>
+                    <div id="output" class="result"></div>
+                    <div id="win"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                    <p>Moves made</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
     </div>
   </div>
 </div> 
-<table id="stats">
-  <tbody>
-      <tr>
-        <td>
-            <div id="playerPick"></div> :
-            <div id="comPick"></div>
-        </td>
-      </tr>
-    <tr>
-      <td>
-          <div id="output" class="result"></div>
-      </td>
-    </tr>
-    <tr>
-      <td>
-          <div id="roundsTotal"></div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+<div id="output" class="result"></div>
+<div id="roundsTotal"></div>
+
+<div>
+    <button id="reset" class="new-game">Reset</div>
+</div>
+
 <script  src="js/index.js"></script>
 </body>
 
